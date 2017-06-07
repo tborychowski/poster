@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+
+<iframe src="frame.html" id="frame"></iframe>
+
+<button id="btn">send</button>
+
+
+<script src="poster.js"></script>
+<script>
+
+function onMsg (action, params, cb) {
+	console.log('parent: onmessage', action, params);
+
+	if (cb) setTimeout(() => {
+		cb({ response: 'callback from parent' });
+	}, 1000);
+}
+
+
+const p = window.Poster(document.getElementById('frame'), onMsg);
+
+
+
+document.getElementById('btn').addEventListener('click', () => {
+
+	p.send('parent-frame', { param: 'param one' }, msg => {
+		console.log('parent: callback message', msg);
+	});
+
+});
+
+
+</script>
+</body>

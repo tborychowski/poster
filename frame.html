@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+frame content
+<button id="btn">send</button>
+
+
+<script src="poster.js"></script>
+<script>
+
+document.getElementById('btn').addEventListener('click', () => {
+
+	p.send('frame-parent', { param: 'from iframe' }, msg => {
+		console.log('frame: callback message', msg);
+	});
+
+});
+
+
+
+function onMsg (action, params, cb) {
+	console.log('frame: onmessage', action, params);
+
+	if (cb) setTimeout(() => {
+		cb({ response: 'callback from frame' });
+	}, 1000);
+}
+
+const p = window.Poster(window.top, onMsg);
+
+
+
+</script>
+</body>
