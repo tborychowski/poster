@@ -26,10 +26,13 @@ function onMessageReceivedCallback (actionName, params, responseCallback) { }
 
 #### sending messages
 ```js
-const actionName = 'channel4';
-const params = { param: 'param one' };
-const cb = msg => { console.log('parent: callback message', msg); }
-poster.send(actionName, params, cb);
+/**
+ * poster.send
+ * @param actionName - or channel; any string will do
+ * @param params - can be a primitive, or a [serialisable](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) object that will be passed along with the message
+ * @param responseCallback [optional] - if a callback is needed - the passed function will be called, once the receiver responds to this message
+ */
+poster.send(actionName, params, responseCallback);
 ```
 
 ## Example usage
