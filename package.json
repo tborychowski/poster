@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "2-way post messages",
   "main": "poster.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tborychowski/poster"
+  },
   "scripts": {
   },
   "author": "",
