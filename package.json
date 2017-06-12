@@ -1,11 +1,10 @@
 {
   "name": "poster",
   "version": "1.0.0",
-  "description": "",
+  "description": "2-way post messages",
   "main": "poster.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
